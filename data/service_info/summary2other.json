@@ -1,0 +1,10 @@
+{
+    "Query": {
+        "service_name": "arvix_mcp",
+        "port": 50122,
+        "path": "/search-papers",
+        "method": "post",
+        "title": "arvix_mcp service",
+        "type": "research"
+    }
+}

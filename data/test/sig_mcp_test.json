@@ -1,0 +1,51 @@
+[
+    {
+        "name": "arvix_mcp",
+        "path": "...",
+        "title": "Arvix_Mcp Service",
+        "version": "1.0.0",
+        "port": 50122,
+        "transport": "sse",
+        "endpoints": [
+            {
+                "path": "/search-papers",
+                "method": "POST",
+                "summary": "Search for papers with filters like query, date_from, categories",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "type": "str",
+                        "required": true,
+                        "default": null,
+                        "description": ""
+                    },
+                    {
+                        "name": "max_results",
+                        "type": "Optional[int]",
+                        "required": false,
+                        "default": null,
+                        "description": ""
+                    },
+                    {
+                        "name": "date_from",
+                        "type": "Optional[str]",
+                        "required": false,
+                        "default": null,
+                        "description": ""
+                    },
+                    {
+                        "name": "categories",
+                        "type": "Any",
+                        "required": false,
+                        "default": null,
+                        "description": ""
+                    }
+                ],
+                "Hierarchical_information": "The arvix_mcp for the research is as follows: Search for papers with filters like query, date_from, categories",
+                "query": "I want to study, I want to search for papers containing \"large language model\", return maximum 5 papers, and only search those published after 2023 in cs.CL category."
+            }
+            
+        ]
+    }
+]

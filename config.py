@@ -33,14 +33,7 @@ class LLMConfig():
         "max_tokens":2000
     }}
 
-    LLM_SET_LLama3_3b = {
-        'model': 'llama3',
-        'model_server': 'http://172.20.98.51:38081/v1',
-        'api_key': 'EMPTY',
-         'generate_cfg': {
-        'temperature': 0,
-        "max_tokens":2000
-    }}
+   
 
     LLM_SET_qwen3_8b = {
         'model': 'Qwen3_8B',
