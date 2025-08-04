@@ -9,7 +9,6 @@
 ## 📝 Introduction
 
 **HiRAG** (Hierarchical Retrieval-Augmented Generation) is a hierarchical multi-service Retrieval-Augmented Generation framework designed to enhance large language models' tool selection and utilization in complex tasks.  
-This project provides a complete environment setup, deployment instructions for multiple language models, and scripts for running comparative experiments in both single-service and multi-service settings.
 
 ---
 
@@ -62,7 +61,7 @@ nohup vllm serve Qwen3_8B \
 
 This project supports three experiment settings: Flat-RAG, Full Service, and HiRAG.
 
-### 1. Full Service Setting
+### 1. Full Service
 
 | Scenario | Command |
 |----------|---------|
@@ -71,7 +70,7 @@ This project supports three experiment settings: Flat-RAG, Full Service, and HiR
 
 ---
 
-### 2. Flat RAG Baseline
+### 2. Flat RAG
 
 | Scenario | Command |
 |----------|---------|
