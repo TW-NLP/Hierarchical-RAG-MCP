@@ -28,6 +28,13 @@ pip install -r requirements.txt
 
 ---
 
+
+服务运行
+
+cd scrpts
+bash server_start.sh
+
+
 ## 🚀 Launch Large Language Models (LLMs)
 
 Use [vLLM](https://github.com/vllm-project/vllm) to start different model services:

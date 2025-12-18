@@ -1,7 +1,0 @@
-[
-  {
-    "query": "Search Wikipedia for representative works of Yu Hua and create a DOCX file with the article content in the /home directory.",
-    "tool_list": ["wiki_search_wikipedia", "docx_mcp_write_docx"]
-  }
-  
-]

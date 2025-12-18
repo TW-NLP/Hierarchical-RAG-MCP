@@ -61,12 +61,12 @@ class WebUI:
         }
 
         self.agent_config_list = [{
-            'name': agent.name,
+            'name': 'Hierarchical-RAG-MCP',
             'avatar': chatbot_config.get(
                 'agent.avatar',
                 get_avatar_image(agent.name),
             ),
-            'description': agent.description or "I'm a helpful assistant.",
+            'description': agent.description or "I am an agent developed based on Hierarchical-RAG-MCP.",
         } for agent in self.agent_list]
 
         self.input_placeholder = chatbot_config.get('input.placeholder', '跟我聊聊吧～')

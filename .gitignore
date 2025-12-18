@@ -1,2 +1,3 @@
 __pycache__/
 data/faiss_save/data.index
+data/service_info/logs/

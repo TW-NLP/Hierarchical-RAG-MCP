@@ -1,2 +1,242 @@
-arvix_mcp	50122
-... otherservices...
+{
+  "arvix_mcp": {
+    "pid": 78271,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/research/arvix_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/arvix_mcp.log",
+    "status": "running"
+  },
+  "hugging_face_mcp": {
+    "pid": 78272,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/research/hugging_face_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/hugging_face_mcp.log",
+    "status": "running"
+  },
+  "code_mcp": {
+    "pid": 78273,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/research/code_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/code_mcp.log",
+    "status": "running"
+  },
+  "japanese_learning_mcp": {
+    "pid": 78274,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/research/japanese_learning_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/japanese_learning_mcp.log",
+    "status": "running"
+  },
+  "tmdb_movie": {
+    "pid": 78275,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/entertainment-and-media/tmdb_movie/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/tmdb_movie.log",
+    "status": "running"
+  },
+  "bilibili": {
+    "pid": 78276,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/entertainment-and-media/bilibili/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/bilibili.log",
+    "status": "running"
+  },
+  "bazi": {
+    "pid": 78277,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/entertainment-and-media/bazi/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/bazi.log",
+    "status": "running"
+  },
+  "text2image": {
+    "pid": 78278,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/entertainment-and-media/text2image/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/text2image.log",
+    "status": "running"
+  },
+  "youtube_trans": {
+    "pid": 78279,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/entertainment-and-media/youtube_trans/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/youtube_trans.log",
+    "status": "running"
+  },
+  "China_location_mcp": {
+    "pid": 78280,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/location_weather_find/China_location_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/China_location_mcp.log",
+    "status": "running"
+  },
+  "NPS": {
+    "pid": 78281,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/location_weather_find/NPS/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/NPS.log",
+    "status": "running"
+  },
+  "google_location": {
+    "pid": 78282,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/location_weather_find/google_location/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/google_location.log",
+    "status": "running"
+  },
+  "Netherlands_weather_mcp": {
+    "pid": 78283,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/location_weather_find/Netherlands_weather_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/Netherlands_weather_mcp.log",
+    "status": "running"
+  },
+  "aiwen": {
+    "pid": 78284,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/location_weather_find/aiwen/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/aiwen.log",
+    "status": "running"
+  },
+  "calendar": {
+    "pid": 78285,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/calendar-management/calendar/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/calendar.log",
+    "status": "running"
+  },
+  "time": {
+    "pid": 78286,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/calendar-management/time/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/time.log",
+    "status": "running"
+  },
+  "ding_talk": {
+    "pid": 78287,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/calendar-management/ding_talk/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/ding_talk.log",
+    "status": "running"
+  },
+  "PostgreSQL": {
+    "pid": 78288,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/PostgreSQL/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/PostgreSQL.log",
+    "status": "running"
+  },
+  "airbnb": {
+    "pid": 78289,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/airbnb/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/airbnb.log",
+    "status": "running"
+  },
+  "flight_find": {
+    "pid": 78290,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/flight_find/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/flight_find.log",
+    "status": "running"
+  },
+  "redis": {
+    "pid": 78291,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/redis/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/redis.log",
+    "status": "running"
+  },
+  "wiki": {
+    "pid": 78292,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/wiki/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/wiki.log",
+    "status": "running"
+  },
+  "sqlite": {
+    "pid": 78293,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/sqlite/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/sqlite.log",
+    "status": "running"
+  },
+  "youtube": {
+    "pid": 78294,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/youtube/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/youtube.log",
+    "status": "running"
+  },
+  "Brave": {
+    "pid": 78295,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/Brave/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/Brave.log",
+    "status": "running"
+  },
+  "bing_search": {
+    "pid": 78296,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/bing_search/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/bing_search.log",
+    "status": "running"
+  },
+  "marvel": {
+    "pid": 78297,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/marvel/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/marvel.log",
+    "status": "running"
+  },
+  "AWS": {
+    "pid": 78298,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/AWS/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/AWS.log",
+    "status": "running"
+  },
+  "GoogleDrive": {
+    "pid": 78299,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/search/GoogleDrive/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/GoogleDrive.log",
+    "status": "running"
+  },
+  "stock": {
+    "pid": 78300,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/finance/stock/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/stock.log",
+    "status": "running"
+  },
+  "gold_price": {
+    "pid": 78301,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/finance/gold_price/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/gold_price.log",
+    "status": "running"
+  },
+  "puppeteer": {
+    "pid": 78302,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/browser-automation/puppeteer/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/puppeteer.log",
+    "status": "running"
+  },
+  "fetch": {
+    "pid": 78303,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/browser-automation/fetch/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/fetch.log",
+    "status": "running"
+  },
+  "image_mcp": {
+    "pid": 78304,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/image_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/image_mcp.log",
+    "status": "running"
+  },
+  "pdf_mcp": {
+    "pid": 78305,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/pdf_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/pdf_mcp.log",
+    "status": "running"
+  },
+  "excel_mcp": {
+    "pid": 78306,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/excel_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/excel_mcp.log",
+    "status": "running"
+  },
+  "file_system_mcp": {
+    "pid": 78307,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/file_system_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/file_system_mcp.log",
+    "status": "running"
+  },
+  "docx_mcp": {
+    "pid": 78308,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/docx_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/docx_mcp.log",
+    "status": "running"
+  },
+  "github_mcp": {
+    "pid": 78309,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/github_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/github_mcp.log",
+    "status": "running"
+  },
+  "gitlab_mcp": {
+    "pid": 78310,
+    "path": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/app/mcp_service/file_systems/gitlab_mcp/run.py",
+    "log": "/Users/tianwei/paper/icassp/Hierarchical-RAG-MCP/data/service_info/logs/gitlab_mcp.log",
+    "status": "running"
+  }
+}
