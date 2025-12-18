@@ -4,7 +4,7 @@
 <div align="center">
 <img src="images/HiRAG.png" alt="HiRAG Framework" height="300">
 
-<em>Official implementation of "Beyond Flat Retrieval: Structure-Aware Tool Selection with Hi-RAG"</em>
+<em>Official implementation of "Beyond Flat Retrieval: Structure-Aware Tool Selection with "Hi-RAG"</em>
 </div>
 
 
@@ -12,8 +12,6 @@
 <div align="center">
 <img src="images/show.png" alt="HiRAG Web" height="300">
 
-
-<em>Hi-RAG Web"</em>
 </div>
 
 ---
