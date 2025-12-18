@@ -1,0 +1,242 @@
+[
+  {
+    "query": "Search Wikipedia for representative works of Yu Hua and create a DOCX file with the article content in the /home directory.",
+    "tool_list": ["wiki_search_wikipedia", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Read all contents from /home/demo.docx including tables and images, then search Bing using the document's title for related information.",
+    "tool_list": ["docx_mcp_read_docx", "bing_search_bing_search"]
+  },
+  {
+    "query": "Move or rename the file from /home/test/demo.docx to /home/test1/demo.docx, then read and extract its contents.",
+    "tool_list": ["file_system_mcp_move_file", "docx_mcp_read_docx"]
+  },
+  {
+    "query": "List the commit history of the current GitHub repository branch and save the results as a DOCX file in /home.",
+    "tool_list": ["github_mcp_list_commits", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Extract text content from the local PDF file /home/test/demo.pdf and write it into a DOCX file at /home/test/demo.docx.",
+    "tool_list": ["pdf_mcp_read_local_pdf", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Get the current time in your timezone and search Bing for the latest trending events.",
+    "tool_list": ["time_get_current_time", "bing_search_bing_search"]
+  },
+  {
+    "query": "Retrieve the current time and list all calendar holidays or events for this month.",
+    "tool_list": ["time_get_current_time", "calendar_calcom_list_appointments"]
+  },
+  {
+    "query": "Extract text from the remote PDF at https://example.com/document.pdf and save it as a DOCX file in /home/test/demo.docx.",
+    "tool_list": ["pdf_mcp_read_pdf_url", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Read the full text from the local PDF /home/test/demo.pdf and search Bing for related topics.",
+    "tool_list": ["pdf_mcp_read_local_pdf", "bing_search_bing_search"]
+  },
+  {
+    "query": "Retrieve the content of the arXiv paper with ID 123 and write it to a DOCX file in the /home directory.",
+    "tool_list": ["arvix_mcp_read_paper", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Download arXiv paper with ID 123 to local storage, get its PDF link, and read its full text.",
+    "tool_list": ["arvix_mcp_download_paper", "pdf_mcp_read_pdf_url"]
+  },
+  {
+    "query": "Calculate Bazi information for a male born on February 1, 1998 (Gregorian), January 1 (Lunar), and save the result in /home/bazi.docx.",
+    "tool_list": ["bazi_getBaziDetail", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Get the transcript of Bilibili video with ID 1 and save it as a DOCX file at /home/test/demo.docx.",
+    "tool_list": ["bilibili_get_video_content", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Search arXiv for BERT_related academic papers and save the content into a DOCX file at /home/test/demo.docx.",
+    "tool_list": ["arvix_mcp_search_papers", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Read the entire contents of /home/demo.docx and use its title to generate a visual image.",
+    "tool_list": ["docx_mcp_read_docx", "text2image_text_to_image"]
+  },
+  {
+    "query": "Search for BERT_related research on arXiv and generate a visual image from the search results.",
+    "tool_list": ["arvix_mcp_search_papers", "text2image_text_to_image"]
+  },
+  {
+    "query": "Extract text from /home/test/demo.pdf and generate an image based on the document content.",
+    "tool_list": ["pdf_mcp_read_local_pdf", "text2image_text_to_image"]
+  },
+  {
+    "query": "Read the remote PDF from https://example.com/document.pdf and convert its content into a DOCX file saved at /home/test/demo.docx.",
+    "tool_list": ["pdf_mcp_read_pdf_url", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Fetch detailed information for Hugging Face model 'Bert_base' and write it into a DOCX file at /home/test/demo.docx.",
+    "tool_list": ["hugging_face_mcp_get_model_info", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Retrieve info about the Hugging Face model 'Bert_base' and generate an image representing its description.",
+    "tool_list": ["hugging_face_mcp_get_model_info", "text2image_text_to_image"]
+  },
+  {
+    "query": "Get dataset information for 'Bert_pre_train_dataset' from Hugging Face and create an image based on its details.",
+    "tool_list": ["hugging_face_mcp_get_dataset_info", "text2image_text_to_image"]
+  },
+  {
+    "query": "Retrieve detailed description of Hugging Face dataset 'Bert_pre_train_dataset' and save it as a DOCX file in /home/test/demo.docx.",
+    "tool_list": ["hugging_face_mcp_get_dataset_info", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Get the latest stock quote data in India and save it as a DOCX file at /home/test/demo.docx.",
+    "tool_list": ["stock_get_stock_quote", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Retrieve the complete Wikipedia article for the book 'To Live', including metadata, and save it to /home/test/demo.docx.",
+    "tool_list": ["wiki_get_article", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Get the current time and save this information in a DOCX file located at /home/time_info.docx.",
+    "tool_list": ["time_get_current_time", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Read full content from /home/demo.docx and use its topic to search Wikipedia for more details.",
+    "tool_list": ["docx_mcp_read_docx", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Get the description of Hugging Face model 'GPT_2' and use Bing to search for related technical resources.",
+    "tool_list": ["hugging_face_mcp_get_model_info", "bing_search_bing_search"]
+  },
+  {
+    "query": "Extract content from the local PDF file /home/test/demo.pdf and use Wikipedia to find related articles.",
+    "tool_list": ["pdf_mcp_read_local_pdf", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Search arXiv for Transformer_related research and use Bing to find interpretation articles or summaries.",
+    "tool_list": ["arvix_mcp_search_papers", "bing_search_bing_search"]
+  },
+  {
+    "query": "List the latest commits from the GitHub repository and search Bing for associated development technologies.",
+    "tool_list": ["github_mcp_list_commits", "bing_search_bing_search"]
+  },
+  {
+    "query": "Read the PDF file from https://example.com/research.pdf and search Wikipedia for related subjects.",
+    "tool_list": ["pdf_mcp_read_pdf_url", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Fetch transcript from Bilibili video ID 123 and search Bing for related discussions or reviews.",
+    "tool_list": ["bilibili_get_video_content", "bing_search_bing_search"]
+  },
+  {
+    "query": "Get Hugging Face dataset info for 'IMDB' and search Wikipedia for its background and applications.",
+    "tool_list": ["hugging_face_mcp_get_dataset_info", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Retrieve stock quotes for India and use Bing to search for relevant financial news.",
+    "tool_list": ["stock_get_stock_quote", "bing_search_bing_search"]
+  },
+  {
+    "query": "Search Wikipedia for the full content of the book 'Dream of the Red Chamber' and then use Bing to find literary reviews.",
+    "tool_list": ["wiki_get_article", "bing_search_bing_search"]
+  },
+  {
+    "query": "Move the file /home/source/demo.docx to /home/backup/demo.docx and then use its content to search related topics on Wikipedia.",
+    "tool_list": ["file_system_mcp_move_file", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Get the current time and search Wikipedia for historical events that occurred on today's date.",
+    "tool_list": ["time_get_current_time", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Read the PDF document /home/data/report.pdf and generate images based on its contents.",
+    "tool_list": ["pdf_mcp_read_local_pdf", "text2image_text_to_image"]
+  },
+  {
+    "query": "Download the arXiv paper with ID 456, get the PDF, and save the paper content into /home/paper.docx.",
+    "tool_list": ["arvix_mcp_download_paper", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Extract transcript from Bilibili video ID 999 and search Wikipedia for relevant discussion topics.",
+    "tool_list": ["bilibili_get_video_content", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Search Wikipedia for information about machine learning, save the content to /home/ml_info.docx, then generate a visual image based on the document content.",
+    "tool_list": ["wiki_search_wikipedia", "docx_mcp_write_docx", "text2image_text_to_image"]
+  },
+  {
+    "query": "Get the current time, search Bing for today's tech news, and save the results as a DOCX file at /home/news.docx.",
+    "tool_list": ["time_get_current_time", "bing_search_bing_search", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Read the PDF file from https://example.com/research.pdf, search Wikipedia for related topics, and generate an image from the combined content.",
+    "tool_list": ["pdf_mcp_read_pdf_url", "wiki_search_wikipedia", "text2image_text_to_image"]
+  },
+  {
+    "query": "Search arXiv for GPT-related papers, save the results to /home/gpt_papers.docx, and search Bing for additional commentary.",
+    "tool_list": ["arvix_mcp_search_papers", "docx_mcp_write_docx", "bing_search_bing_search"]
+  },
+  {
+    "query": "Get Hugging Face model info for 'BERT-base-uncased', save it to /home/bert_info.docx, and generate a technical diagram image.",
+    "tool_list": ["hugging_face_mcp_get_model_info", "docx_mcp_write_docx", "text2image_text_to_image"]
+  },
+  {
+    "query": "Read the local PDF /home/data/report.pdf, search Wikipedia for background information, and save everything to /home/combined_report.docx.",
+    "tool_list": ["pdf_mcp_read_local_pdf", "wiki_search_wikipedia", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Get Bilibili video transcript for ID 12345, search Bing for related discussions, and create a visual summary image.",
+    "tool_list": ["bilibili_get_video_content", "bing_search_bing_search", "text2image_text_to_image"]
+  },
+  {
+    "query": "List GitHub repository commits, save the commit history to /home/commits.docx, and search Wikipedia for related development methodologies.",
+    "tool_list": ["github_mcp_list_commits", "docx_mcp_write_docx", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Get stock quotes for India, search Bing for market analysis, and generate a financial chart image.",
+    "tool_list": ["stock_get_stock_quote", "bing_search_bing_search", "text2image_text_to_image"]
+  },
+  {
+    "query": "Move file from /home/source/data.docx to /home/backup/data.docx, read its contents, and search Wikipedia for related information.",
+    "tool_list": ["file_system_mcp_move_file", "docx_mcp_read_docx", "wiki_search_wikipedia"]
+  },
+  {
+    "query": "Get Hugging Face dataset info for 'squad', save it to /home/squad_info.docx, and search Bing for usage examples.",
+    "tool_list": ["hugging_face_mcp_get_dataset_info", "docx_mcp_write_docx", "bing_search_bing_search"]
+  },
+  {
+    "query": "Read arXiv paper with ID 2301.12345, search Wikipedia for the paper's topic, and generate an academic illustration image.",
+    "tool_list": ["arvix_mcp_read_paper", "wiki_search_wikipedia", "text2image_text_to_image"]
+  },
+  {
+    "query": "Get current time, search Wikipedia for historical events on this date, and save the findings to /home/history.docx.",
+    "tool_list": ["time_get_current_time", "wiki_search_wikipedia", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Download arXiv paper ID 2023.56789, read its PDF content, and save the extracted text to /home/paper_content.docx.",
+    "tool_list": ["arvix_mcp_download_paper", "pdf_mcp_read_pdf_url", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Calculate Bazi details for a person born on March 15, 1990, search Wikipedia for Chinese astrology, and create a cultural illustration image.",
+    "tool_list": ["bazi_getBaziDetail", "wiki_search_wikipedia", "text2image_text_to_image"]
+  },
+  {
+    "query": "Read the DOCX file /home/research.docx, search Bing for recent developments on the topic, and generate a summary image.",
+    "tool_list": ["docx_mcp_read_docx", "bing_search_bing_search", "text2image_text_to_image"]
+  },
+  {
+    "query": "Get Wikipedia article for 'Artificial Intelligence', save it to /home/ai_article.docx, and search Bing for latest AI news.",
+    "tool_list": ["wiki_get_article", "docx_mcp_write_docx", "bing_search_bing_search"]
+  },
+  {
+    "query": "Extract text from remote PDF https://example.com/thesis.pdf, search Wikipedia for the thesis topic, and save combined content to /home/thesis_analysis.docx.",
+    "tool_list": ["pdf_mcp_read_pdf_url", "wiki_search_wikipedia", "docx_mcp_write_docx"]
+  },
+  {
+    "query": "Get Bilibili video content for ID 98765, save the transcript to /home/video_transcript.docx, and generate a content visualization image.",
+    "tool_list": ["bilibili_get_video_content", "docx_mcp_write_docx", "text2image_text_to_image"]
+  },
+  {
+    "query": "Search arXiv for transformer architecture papers, search Bing for implementation tutorials, and create a technical architecture diagram image.",
+    "tool_list": ["arvix_mcp_search_papers", "bing_search_bing_search", "text2image_text_to_image"]
+  }
+]

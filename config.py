@@ -5,6 +5,7 @@ DATA_DIR = os.path.join(PROJECT_DIR, 'data')
 SERVICE_DIR=os.path.join(PROJECT_DIR, 'app','mcp_service')
 SERVICE_INFO=os.path.join(DATA_DIR, 'service_info','info.txt')
 FAISS_PATH = os.path.join(DATA_DIR, 'faiss_save','data.index')
+SIG_TEST_DIR=os.path.join(DATA_DIR, 'query_test','sig_mcp_test.json')
 os.makedirs(os.path.join(DATA_DIR, 'faiss_save'), exist_ok=True)
 
 
@@ -14,8 +15,9 @@ class LLMConfig():
 
     LLM_SET_Qwen3 = {
         'model': 'Qwen3-32B',
-        'model_server': 'http://172.20.98.51:38084/v1',
-        'api_key': 'EMPTY',
+        'model_server': "http://172.20.98.90:8080/v1",
+        "model": "Qwen3-32B",
+        'api_key': 'cube_llm_123',
          'generate_cfg': {
         'temperature': 0,
         "max_tokens":2000

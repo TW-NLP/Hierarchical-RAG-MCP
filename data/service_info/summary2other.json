@@ -1,10 +1,1610 @@
 {
-    "Query": {
+    "Search for papers with filters like query, date_from, categories": {
         "service_name": "arvix_mcp",
         "port": 50122,
         "path": "/search-papers",
         "method": "post",
         "title": "arvix_mcp service",
         "type": "research"
+    },
+    "Download a paper by its arXiv ID to local storage": {
+        "service_name": "arvix_mcp",
+        "port": 50122,
+        "path": "/download-paper",
+        "method": "post",
+        "title": "arvix_mcp service",
+        "type": "research"
+    },
+    "List all downloaded papers in local storage": {
+        "service_name": "arvix_mcp",
+        "port": 50122,
+        "path": "/list-papers",
+        "method": "get",
+        "title": "arvix_mcp service",
+        "type": "research"
+    },
+    "Read and return the contents of a downloaded paper": {
+        "service_name": "arvix_mcp",
+        "port": 50122,
+        "path": "/read-paper",
+        "method": "post",
+        "title": "arvix_mcp service",
+        "type": "research"
+    },
+    "Search models with optional filters for query, author, tags, and limit": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/search-models",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Get detailed information about a specific model": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/get-model-info",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Search datasets with filters like query, tags, and limit": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/search-datasets",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Get detailed information about a specific dataset": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/get-dataset-info",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Search Spaces with optional filters including SDK type": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/search-spaces",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Get detailed information about a specific Space": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/get-space-info",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Get detailed information about a specific paper and its implementations": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/get-paper-info",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Get the list of curated daily papers": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/get-daily-papers",
+        "method": "get",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Search collections with various filters": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/search-collections",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Get detailed information about a specific collection": {
+        "service_name": "hugging_face_mcp",
+        "port": 50124,
+        "path": "/get-collection-info",
+        "method": "post",
+        "title": "hugging_face_mcp service",
+        "type": "research"
+    },
+    "Retrieves today's LeetCode Daily Challenge problem with complete details": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-daily-challenge",
+        "method": "get",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves details about a specific LeetCode problem": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-problem",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Search for LeetCode problems based on filter criteria": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/search-problems",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves profile information about a LeetCode user": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-user-profile",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves a user's contest ranking information": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-user-contest-ranking",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves a user's recent submissions on LeetCode Global": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-recent-submissions",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves a user's recent accepted submissions": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-recent-ac-submissions",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves the current user's status": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-user-status",
+        "method": "get",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves detailed information about a specific submission": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-problem-submission-report",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves the current user's problem-solving progress": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-problem-progress",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves paginated list of user's submissions": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-all-submissions",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Searches for user notes on LeetCode China": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/search-notes",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves user notes for a specific problem": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-note",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Creates a new note for a specific problem": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/create-note",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Updates an existing note": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/update-note",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves a list of community solutions for a specific problem": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/list-problem-solutions",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Retrieves the complete content of a specific solution": {
+        "service_name": "code_mcp",
+        "port": 50123,
+        "path": "/get-problem-solution",
+        "method": "post",
+        "title": "code_mcp service",
+        "type": "research"
+    },
+    "Count the number of characters in the file.": {
+        "service_name": "japanese_learning_mcp",
+        "port": 50131,
+        "path": "/count-chars",
+        "method": "post",
+        "title": "japanese_learning_mcp service",
+        "type": "research"
+    },
+    "Count the number of words in the file.": {
+        "service_name": "japanese_learning_mcp",
+        "port": 50131,
+        "path": "/count-words",
+        "method": "post",
+        "title": "japanese_learning_mcp service",
+        "type": "research"
+    },
+    "Count the number of characters in the clipboard.": {
+        "service_name": "japanese_learning_mcp",
+        "port": 50131,
+        "path": "/count-clipboard-chars",
+        "method": "post",
+        "title": "japanese_learning_mcp service",
+        "type": "research"
+    },
+    "Count the number of words in the clipboard.": {
+        "service_name": "japanese_learning_mcp",
+        "port": 50131,
+        "path": "/count-clipboard-words",
+        "method": "post",
+        "title": "japanese_learning_mcp service",
+        "type": "research"
+    },
+    "Analyze the linguistic features of the text.": {
+        "service_name": "japanese_learning_mcp",
+        "port": 50131,
+        "path": "/analyze-text",
+        "method": "post",
+        "title": "japanese_learning_mcp service",
+        "type": "research"
+    },
+    "Analyze the linguistic features of the file.": {
+        "service_name": "japanese_learning_mcp",
+        "port": 50131,
+        "path": "/analyze-file",
+        "method": "post",
+        "title": "japanese_learning_mcp service",
+        "type": "research"
+    },
+    "Search for movies by title or keyword.": {
+        "service_name": "tmdb_movie",
+        "port": 50109,
+        "path": "/search_movies",
+        "method": "post",
+        "title": "movie tools api",
+        "type": "entertainment-and-media"
+    },
+    "Get recommended movies based on movie ID.": {
+        "service_name": "tmdb_movie",
+        "port": 50109,
+        "path": "/get_recommendations",
+        "method": "post",
+        "title": "movie tools api",
+        "type": "entertainment-and-media"
+    },
+    "Get popular movies within a specified time window.": {
+        "service_name": "tmdb_movie",
+        "port": 50109,
+        "path": "/get_trending",
+        "method": "post",
+        "title": "movie tools api",
+        "type": "entertainment-and-media"
+    },
+    "Load Bilibili video content into memory.": {
+        "service_name": "bilibili",
+        "port": 50107,
+        "path": "/load_bilibili_video",
+        "method": "post",
+        "title": "bilibili video tools api",
+        "type": "entertainment-and-media"
+    },
+    "Get content of the loaded video": {
+        "service_name": "bilibili",
+        "port": 50107,
+        "path": "/get_video_content",
+        "method": "post",
+        "title": "bilibili video tools api",
+        "type": "entertainment-and-media"
+    },
+    "Search for specific text in the video content": {
+        "service_name": "bilibili",
+        "port": 50107,
+        "path": "/search_in_video",
+        "method": "post",
+        "title": "bilibili video tools api",
+        "type": "entertainment-and-media"
+    },
+    "Extract video content summary": {
+        "service_name": "bilibili",
+        "port": 50107,
+        "path": "/extract_video_summary",
+        "method": "post",
+        "title": "bilibili video tools api",
+        "type": "entertainment-and-media"
+    },
+    "Export video content to file": {
+        "service_name": "bilibili",
+        "port": 50107,
+        "path": "/export_video_content",
+        "method": "post",
+        "title": "bilibili video tools api",
+        "type": "entertainment-and-media"
+    },
+    "Check Bilibili authentication status": {
+        "service_name": "bilibili",
+        "port": 50107,
+        "path": "/get_bilibili_auth_status",
+        "method": "get",
+        "title": "bilibili video tools api",
+        "type": "entertainment-and-media"
+    },
+    "Calculate the Bazi results based on the solar/lunar datetime": {
+        "service_name": "bazi",
+        "port": 50106,
+        "path": "/getBaziDetail",
+        "method": "post",
+        "title": "bazi tools api",
+        "type": "entertainment-and-media"
+    },
+    "Convert text to image": {
+        "service_name": "text2image",
+        "port": 50108,
+        "path": "/text_to_image",
+        "method": "post",
+        "title": "text to image mcp tools api",
+        "type": "entertainment-and-media"
+    },
+    "Extract subtitles from a YouTube video": {
+        "service_name": "youtube_trans",
+        "port": 50110,
+        "path": "/get_transcript",
+        "method": "post",
+        "title": "youtube transcript tools api",
+        "type": "entertainment-and-media"
+    },
+    "Convert address into latitude and longitude coordinates": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/geocode",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Convert coordinates into administrative district information": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/reverse-geocode",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Determine location from IP address": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/ip-location",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Query weather forecasts for a city": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/weather-query",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Plan cycling route up to 500km": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/cycling-route",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Plan walking route within 100km": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/walking-route",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Plan driving route for small cars": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/driving-route",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Plan public transport route, supports cross-city with city and cityd": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/public-transport-route",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Measure distance and time between two coordinates": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/distance-measurement",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Search POIs by keywords": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/keyword-search",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Search POIs near a location within a radius": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/nearby-search",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Get detailed information for a POI ID": {
+        "service_name": "China_location_mcp",
+        "port": 50119,
+        "path": "/detail-search",
+        "method": "post",
+        "title": "china_location_mcp service",
+        "type": "location_weather_find"
+    },
+    "Search for national parks": {
+        "service_name": "NPS",
+        "port": 50121,
+        "path": "/findParks",
+        "method": "post",
+        "title": "national parks tools api",
+        "type": "location_weather_find"
+    },
+    "Get detailed information about a national park": {
+        "service_name": "NPS",
+        "port": 50121,
+        "path": "/getParkDetails",
+        "method": "post",
+        "title": "national parks tools api",
+        "type": "location_weather_find"
+    },
+    "Get current alerts for parks": {
+        "service_name": "NPS",
+        "port": 50121,
+        "path": "/getAlerts",
+        "method": "post",
+        "title": "national parks tools api",
+        "type": "location_weather_find"
+    },
+    "Get visitor center information": {
+        "service_name": "NPS",
+        "port": 50121,
+        "path": "/getVisitorCenters",
+        "method": "post",
+        "title": "national parks tools api",
+        "type": "location_weather_find"
+    },
+    "Get campground information": {
+        "service_name": "NPS",
+        "port": 50121,
+        "path": "/getCampgrounds",
+        "method": "post",
+        "title": "national parks tools api",
+        "type": "location_weather_find"
+    },
+    "Find upcoming events at parks": {
+        "service_name": "NPS",
+        "port": 50121,
+        "path": "/getEvents",
+        "method": "post",
+        "title": "national parks tools api",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Geocoding API to obtain geocoding information.": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_geocode",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Reverse Geocoding API to obtain reverse geocoding information.": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_reverse_geocode",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Places Text Search API to search for places.": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_search_places",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Place Details API to obtain details about a place.": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_place_details",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Distance Matrix API to obtain distance matrix": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_distance_matrix",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Elevation API to obtain elevation data": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_elevation",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Use the Google Maps Directions API to obtain route planning": {
+        "service_name": "google_location",
+        "port": 50134,
+        "path": "/maps_directions",
+        "method": "post",
+        "title": "google_location service",
+        "type": "location_weather_find"
+    },
+    "Get detailed information about an IP address": {
+        "service_name": "aiwen",
+        "port": 50133,
+        "path": "/aiwen_ip_location",
+        "method": "post",
+        "title": "aiwen service",
+        "type": "location_weather_find"
+    },
+    "Get current network IP address and location information": {
+        "service_name": "aiwen",
+        "port": 50133,
+        "path": "/user_network_ip",
+        "method": "get",
+        "title": "aiwen service",
+        "type": "location_weather_find"
+    },
+    "Create new calendar appointments": {
+        "service_name": "calendar",
+        "port": 50103,
+        "path": "/calcom_add_appointment",
+        "method": "post",
+        "title": "cal.com tools api",
+        "type": "calendar-management"
+    },
+    "Update existing calendar appointments": {
+        "service_name": "calendar",
+        "port": 50103,
+        "path": "/calcom_update_appointment",
+        "method": "post",
+        "title": "cal.com tools api",
+        "type": "calendar-management"
+    },
+    "Delete existing calendar appointments": {
+        "service_name": "calendar",
+        "port": 50103,
+        "path": "/calcom_delete_appointment",
+        "method": "post",
+        "title": "cal.com tools api",
+        "type": "calendar-management"
+    },
+    "List calendar appointments in a date range": {
+        "service_name": "calendar",
+        "port": 50103,
+        "path": "/calcom_list_appointments",
+        "method": "post",
+        "title": "cal.com tools api",
+        "type": "calendar-management"
+    },
+    "Get the current time in a specific time zone.": {
+        "service_name": "time",
+        "port": 50105,
+        "path": "/get_current_time",
+        "method": "post",
+        "title": "timezone mcp tools api",
+        "type": "calendar-management"
+    },
+    "Convert time between different time zones": {
+        "service_name": "time",
+        "port": 50105,
+        "path": "/convert_time",
+        "method": "post",
+        "title": "timezone mcp tools api",
+        "type": "calendar-management"
+    },
+    "Send a message to a DingTalk conversation.": {
+        "service_name": "ding_talk",
+        "port": 50104,
+        "path": "/send_message",
+        "method": "post",
+        "title": "dingtalk tools api",
+        "type": "calendar-management"
+    },
+    "Get information about a DingTalk conversation.": {
+        "service_name": "ding_talk",
+        "port": 50104,
+        "path": "/get_conversation_info",
+        "method": "post",
+        "title": "dingtalk tools api",
+        "type": "calendar-management"
+    },
+    "Get information about a DingTalk user.": {
+        "service_name": "ding_talk",
+        "port": 50104,
+        "path": "/get_user_info",
+        "method": "post",
+        "title": "dingtalk tools api",
+        "type": "calendar-management"
+    },
+    "Get a list of calendar events for a user.": {
+        "service_name": "ding_talk",
+        "port": 50104,
+        "path": "/get_calendar_list",
+        "method": "post",
+        "title": "dingtalk tools api",
+        "type": "calendar-management"
+    },
+    "Execute a read-only SQL query against the PostgreSQL database": {
+        "service_name": "PostgreSQL",
+        "port": 50136,
+        "path": "/query",
+        "method": "post",
+        "title": "postgresql service",
+        "type": "search"
+    },
+    "Search for Airbnb listings": {
+        "service_name": "airbnb",
+        "port": 50125,
+        "path": "/airbnb_search",
+        "method": "post",
+        "title": "airbnb tools api",
+        "type": "search"
+    },
+    "Get detailed information about an Airbnb listing": {
+        "service_name": "airbnb",
+        "port": 50125,
+        "path": "/airbnb_listing_details",
+        "method": "post",
+        "title": "airbnb tools api",
+        "type": "search"
+    },
+    "Search for flights between airports": {
+        "service_name": "flight_find",
+        "port": 50127,
+        "path": "/search_flights_tool",
+        "method": "post",
+        "title": "flight mcp tools api",
+        "type": "search"
+    },
+    "Check if the MCP server is running": {
+        "service_name": "flight_find",
+        "port": 50127,
+        "path": "/server_status",
+        "method": "get",
+        "title": "flight mcp tools api",
+        "type": "search"
+    },
+    "Set a Redis key-value pair with optional expiration": {
+        "service_name": "redis",
+        "port": 50132,
+        "path": "/set",
+        "method": "post",
+        "title": "redis service",
+        "type": "search"
+    },
+    "Get value by key from Redis": {
+        "service_name": "redis",
+        "port": 50132,
+        "path": "/get",
+        "method": "post",
+        "title": "redis service",
+        "type": "search"
+    },
+    "Delete one or more keys from Redis": {
+        "service_name": "redis",
+        "port": 50132,
+        "path": "/delete",
+        "method": "post",
+        "title": "redis service",
+        "type": "search"
+    },
+    "List Redis keys matching a pattern": {
+        "service_name": "redis",
+        "port": 50132,
+        "path": "/list",
+        "method": "post",
+        "title": "redis service",
+        "type": "search"
+    },
+    "Search Wikipedia for articles": {
+        "service_name": "wiki",
+        "port": 50129,
+        "path": "/search_wikipedia",
+        "method": "post",
+        "title": "wikipedia tools api",
+        "type": "search"
+    },
+    "Get full content of a Wikipedia article": {
+        "service_name": "wiki",
+        "port": 50129,
+        "path": "/get_article",
+        "method": "post",
+        "title": "wikipedia tools api",
+        "type": "search"
+    },
+    "Get summary of a Wikipedia article": {
+        "service_name": "wiki",
+        "port": 50129,
+        "path": "/get_summary",
+        "method": "post",
+        "title": "wikipedia tools api",
+        "type": "search"
+    },
+    "Get sections of a Wikipedia article": {
+        "service_name": "wiki",
+        "port": 50129,
+        "path": "/get_sections",
+        "method": "post",
+        "title": "wikipedia tools api",
+        "type": "search"
+    },
+    "Get links in a Wikipedia article": {
+        "service_name": "wiki",
+        "port": 50129,
+        "path": "/get_links",
+        "method": "post",
+        "title": "wikipedia tools api",
+        "type": "search"
+    },
+    "Get related topics from Wikipedia": {
+        "service_name": "wiki",
+        "port": 50129,
+        "path": "/get_related_topics",
+        "method": "post",
+        "title": "wikipedia tools api",
+        "type": "search"
+    },
+    "Execute a SELECT query and return result rows": {
+        "service_name": "sqlite",
+        "port": 50135,
+        "path": "/read_query",
+        "method": "post",
+        "title": "sqlite service",
+        "type": "search"
+    },
+    "Execute an INSERT/UPDATE/DELETE and return affected rows": {
+        "service_name": "sqlite",
+        "port": 50135,
+        "path": "/write_query",
+        "method": "post",
+        "title": "sqlite service",
+        "type": "search"
+    },
+    "Create a new table with SQL": {
+        "service_name": "sqlite",
+        "port": 50135,
+        "path": "/create_table",
+        "method": "post",
+        "title": "sqlite service",
+        "type": "search"
+    },
+    "List all tables in the database": {
+        "service_name": "sqlite",
+        "port": 50135,
+        "path": "/list_tables",
+        "method": "get",
+        "title": "sqlite service",
+        "type": "search"
+    },
+    "Describe a table's schema (column names and types)": {
+        "service_name": "sqlite",
+        "port": 50135,
+        "path": "/describe-table",
+        "method": "post",
+        "title": "sqlite service",
+        "type": "search"
+    },
+    "Add new business insight and update memo://insights": {
+        "service_name": "sqlite",
+        "port": 50135,
+        "path": "/append_insight",
+        "method": "post",
+        "title": "sqlite service",
+        "type": "search"
+    },
+    "Get video details.": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_video_details",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Search videos": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/search_videos",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Get video transcripts": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_transcripts",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Get related videos": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_related_videos",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Get channel statistics": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_channel_statistics",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Get top videos from a channel": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_channel_top_videos",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Get video engagement ratio": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_video_engagement_ratio",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Get trending videos": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/get_trending_videos",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Compare video data": {
+        "service_name": "youtube",
+        "port": 50130,
+        "path": "/compare_videos",
+        "method": "post",
+        "title": "youtube tools api",
+        "type": "search"
+    },
+    "Search the web with pagination and filtering": {
+        "service_name": "Brave",
+        "port": 50139,
+        "path": "/brave_web_search",
+        "method": "post",
+        "title": "brave service",
+        "type": "search"
+    },
+    "Search local businesses and services": {
+        "service_name": "Brave",
+        "port": 50139,
+        "path": "/brave_local_search",
+        "method": "post",
+        "title": "brave service",
+        "type": "search"
+    },
+    "Search Bing and retrieve the list of results.": {
+        "service_name": "bing_search",
+        "port": 50126,
+        "path": "/bing_search",
+        "method": "post",
+        "title": "bing search tools api",
+        "type": "search"
+    },
+    "Fetch webpage content by search result ID": {
+        "service_name": "bing_search",
+        "port": 50126,
+        "path": "/fetch_webpage",
+        "method": "post",
+        "title": "bing search tools api",
+        "type": "search"
+    },
+    "Fetch Marvel characters with optional filters": {
+        "service_name": "marvel",
+        "port": 50128,
+        "path": "/get_characters",
+        "method": "post",
+        "title": "marvel comics tools api",
+        "type": "search"
+    },
+    "Fetch a Marvel character by ID": {
+        "service_name": "marvel",
+        "port": 50128,
+        "path": "/get_character_by_id",
+        "method": "post",
+        "title": "marvel comics tools api",
+        "type": "search"
+    },
+    "Fetch comics for a Marvel character": {
+        "service_name": "marvel",
+        "port": 50128,
+        "path": "/get_comics_for_character",
+        "method": "post",
+        "title": "marvel comics tools api",
+        "type": "search"
+    },
+    "Fetch Marvel comics with optional filters": {
+        "service_name": "marvel",
+        "port": 50128,
+        "path": "/get_comics",
+        "method": "post",
+        "title": "marvel comics tools api",
+        "type": "search"
+    },
+    "Fetch a single Marvel comic by ID": {
+        "service_name": "marvel",
+        "port": 50128,
+        "path": "/get_comic_by_id",
+        "method": "post",
+        "title": "marvel comics tools api",
+        "type": "search"
+    },
+    "Fetch Marvel characters in a comic": {
+        "service_name": "marvel",
+        "port": 50128,
+        "path": "/get_characters_for_comic",
+        "method": "post",
+        "title": "marvel comics tools api",
+        "type": "search"
+    },
+    "Retrieve documents from AWS Knowledge Base": {
+        "service_name": "AWS",
+        "port": 50138,
+        "path": "/retrieve-from-aws-kb",
+        "method": "post",
+        "title": "aws service",
+        "type": "search"
+    },
+    "Search for files in Google Drive by query string": {
+        "service_name": "GoogleDrive",
+        "port": 50140,
+        "path": "/search",
+        "method": "post",
+        "title": "googledrive service",
+        "type": "search"
+    },
+    "Get the current quote for a stock": {
+        "service_name": "stock",
+        "port": 50118,
+        "path": "/get_stock_quote",
+        "method": "post",
+        "title": "stock tools api",
+        "type": "finance"
+    },
+    "Get historical data for a stock": {
+        "service_name": "stock",
+        "port": 50118,
+        "path": "/get_historical_data",
+        "method": "post",
+        "title": "stock tools api",
+        "type": "finance"
+    },
+    "Get current or historical metal prices": {
+        "service_name": "gold_price",
+        "port": 50117,
+        "path": "/get_gold_price",
+        "method": "post",
+        "title": "metal price tools api",
+        "type": "finance"
+    },
+    "Navigate to a URL in the browser": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_navigate",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Capture a screenshot of the page or element": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_screenshot",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Click an element on the page": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_click",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Hover over an element on the page": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_hover",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Fill an input field": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_fill",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Select a value from a dropdown (select element)": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_select",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Evaluate JavaScript in the browser context": {
+        "service_name": "puppeteer",
+        "port": 50102,
+        "path": "/puppeteer_evaluate",
+        "method": "post",
+        "title": "puppeteer tools api",
+        "type": "browser-automation"
+    },
+    "Fetch a URL and extract its content as markdown.": {
+        "service_name": "fetch",
+        "port": 50101,
+        "path": "/fetch",
+        "method": "post",
+        "title": "fetch tools api",
+        "type": "browser-automation"
+    },
+    "Generate an image using Stable Diffusion": {
+        "service_name": "image_mcp",
+        "port": 50115,
+        "path": "/generate-image",
+        "method": "post",
+        "title": "image_mcp service",
+        "type": "file_systems"
+    },
+    "Save a generated image locally": {
+        "service_name": "image_mcp",
+        "port": 50115,
+        "path": "/save-image",
+        "method": "post",
+        "title": "image_mcp service",
+        "type": "file_systems"
+    },
+    "List all saved images with metadata and thumbnails": {
+        "service_name": "image_mcp",
+        "port": 50115,
+        "path": "/list-saved-images",
+        "method": "get",
+        "title": "image_mcp service",
+        "type": "file_systems"
+    },
+    "Read text content from a local PDF file": {
+        "service_name": "pdf_mcp",
+        "port": 50116,
+        "path": "/read_local_pdf",
+        "method": "post",
+        "title": "pdf_mcp service",
+        "type": "file_systems"
+    },
+    "Read text content from a PDF URL": {
+        "service_name": "pdf_mcp",
+        "port": 50116,
+        "path": "/read_pdf_url",
+        "method": "post",
+        "title": "pdf_mcp service",
+        "type": "file_systems"
+    },
+    "Get Excel structure including sheet list and headers": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/analyze_excel_structure",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Export Excel structure to template": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/export_excel_structure",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Read all sheet names from Excel": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/read_sheet_names",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Read data from a specific sheet": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/read_data_by_sheet_name",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Read data from all sheets": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/read_sheet_data",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Write data to a specific sheet": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/write_data_by_sheet_name",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Write data to new Excel file": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/write_sheet_data",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Clear file cache": {
+        "service_name": "excel_mcp",
+        "port": 50112,
+        "path": "/clear_file_cache",
+        "method": "post",
+        "title": "excel tools api",
+        "type": "file_systems"
+    },
+    "Read complete contents of a file": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/read_file",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Read multiple files simultaneously": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/read_multiple_files",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Create or overwrite a file": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/write_file",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Make selective edits using advanced pattern matching": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/edit_file",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Create new directory or ensure it exists": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/create_directory",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "List directory contents": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/list_directory",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Move or rename files and directories": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/move_file",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Recursively search for files/directories": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/search_files",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Get file or directory metadata": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/get_file_info",
+        "method": "post",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "List allowed directories": {
+        "service_name": "file_system_mcp",
+        "port": 50113,
+        "path": "/list_allowed_directories",
+        "method": "get",
+        "title": "file_system_mcp service",
+        "type": "file_systems"
+    },
+    "Read complete contents of a docx file including tables and images": {
+        "service_name": "docx_mcp",
+        "port": 50111,
+        "path": "/read_docx",
+        "method": "post",
+        "title": "docx_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new docx file with given content": {
+        "service_name": "docx_mcp",
+        "port": 50111,
+        "path": "/write_docx",
+        "method": "post",
+        "title": "docx_mcp service",
+        "type": "file_systems"
+    },
+    "Make text replacements in specified paragraphs of a docx file": {
+        "service_name": "docx_mcp",
+        "port": 50111,
+        "path": "/edit_docx_paragraph",
+        "method": "post",
+        "title": "docx_mcp service",
+        "type": "file_systems"
+    },
+    "Insert new paragraphs into a docx file": {
+        "service_name": "docx_mcp",
+        "port": 50111,
+        "path": "/edit_docx_insert",
+        "method": "post",
+        "title": "docx_mcp service",
+        "type": "file_systems"
+    },
+    "Create or update a single file in a repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/create_or_update_file",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Push multiple files in a single commit": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/push_files",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Search for GitHub repositories": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/search_repositories",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new GitHub repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/create_repository",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get contents of a file or directory": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_file_contents",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new issue in a repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/create_issue",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new pull request in a repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/create_pull_request",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Fork a repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/fork_repository",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new branch in a repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/create_branch",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "List and filter repository issues": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/list_issues",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Update an existing issue in a repository": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/update_issue",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Add a comment to an issue": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/add_issue_comment",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Search for code across GitHub repositories": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/search_code",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Search for issues and pull requests": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/search_issues",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Search for GitHub users": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/search_users",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "List commits on a branch": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/list_commits",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get a specific issue": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_issue",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get a specific pull request": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_pull_request",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "List and filter pull requests": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/list_pull_requests",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Create a pull request review": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/create_pull_request_review",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Merge a pull request": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/merge_pull_request",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get files changed in a pull request": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_pull_request_files",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get status checks for a pull request": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_pull_request_status",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Update PR branch with latest base changes": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/update_pull_request_branch",
+        "method": "post",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get review comments for a pull request": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_pull_request_comments",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Get reviews for a pull request": {
+        "service_name": "github_mcp",
+        "port": 50114,
+        "path": "/get_pull_request_reviews",
+        "method": "get",
+        "title": "github_mcp service",
+        "type": "file_systems"
+    },
+    "Create or update a file.": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/create-or-update-file",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Push files to a specific branch": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/push-files",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Search code repositories": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/search-repositories",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new code repository": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/create-repository",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Get file contents": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/get-file-contents",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new issue": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/create-issue",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new merge request": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/create-merge-request",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Create a fork of a repository": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/fork-repository",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
+    },
+    "Create a new branch": {
+        "service_name": "gitlab_mcp",
+        "port": 50137,
+        "path": "/create-branch",
+        "method": "post",
+        "title": "gitlab_mcp service",
+        "type": "file_systems"
     }
 }

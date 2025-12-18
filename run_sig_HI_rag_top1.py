@@ -8,7 +8,11 @@ if __name__ == '__main__':
 
     if 'Qwen3' in model_name:
 
-        save_path=os.path.join(PROJECT_DIR,'data','infer','Qwen3-32B','sig_mcp_HIRAG.json')
+        save_parent=os.path.join(PROJECT_DIR,'data','infer','Qwen3-32B')
+        if not os.path.exists(save_parent):
+            os.makedirs(save_parent)
+            
+        save_path=os.path.join(save_parent,'sig_mcp_HIRAG.json')
 
         sig_engine.signal_infer(save_path,llm_set=LLMConfig.LLM_SET_Qwen3,rag_type='HIRAG',prompt=prompt_zh)
 
