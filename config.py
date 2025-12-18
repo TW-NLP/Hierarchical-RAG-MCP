@@ -9,6 +9,7 @@ MUL_TEST_DIR = os.path.join(DATA_DIR, 'test','mul_data_end_add.json')
 SERVICE_INFO=os.path.join(DATA_DIR, 'service_info','info.txt')
 
 FAISS_PATH = os.path.join(DATA_DIR, 'faiss_save','data.index')
+os.makedirs(os.path.join(DATA_DIR, 'faiss_save'), exist_ok=True)
 
 
 SUMMARY_PATH = os.path.join(DATA_DIR, 'service_info','summary2other.json')
