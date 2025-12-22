@@ -6,6 +6,7 @@ SERVICE_DIR=os.path.join(PROJECT_DIR, 'app','mcp_service')
 SERVICE_INFO=os.path.join(DATA_DIR, 'service_info','info.txt')
 FAISS_PATH = os.path.join(DATA_DIR, 'faiss_save','data.index')
 SIG_TEST_DIR=os.path.join(DATA_DIR, 'query_test','sig_mcp_test.json')
+MUL_TEST_DIR=os.path.join(DATA_DIR, 'query_test','mul_mcp_test.json')
 os.makedirs(os.path.join(DATA_DIR, 'faiss_save'), exist_ok=True)
 
 
