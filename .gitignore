@@ -2,3 +2,8 @@ __pycache__/
 data/faiss_save/data.index
 data/service_info/logs/
 data/infer/
+data/toolbench/
+faiss_index
+data/tool_bench/G1_query.json
+data/tool_bench/G2_query.json
+data/tool_bench/G3_query.json

@@ -7,6 +7,8 @@ SERVICE_INFO=os.path.join(DATA_DIR, 'service_info','info.txt')
 FAISS_PATH = os.path.join(DATA_DIR, 'faiss_save','data.index')
 SIG_TEST_DIR=os.path.join(DATA_DIR, 'query_test','sig_mcp_test.json')
 MUL_TEST_DIR=os.path.join(DATA_DIR, 'query_test','mul_mcp_test.json')
+TOOL_BENCH_DIR=os.path.join(DATA_DIR, 'tool_bench','tool_bench_summary.json')
+
 os.makedirs(os.path.join(DATA_DIR, 'faiss_save'), exist_ok=True)
 
 
@@ -56,7 +58,7 @@ class RemoteConfig(object):
 
     rerank_config={
         'model_name':'rerank_base',
-        'model_url':"http://172.20.98.51:8085/rerank"
+        'model_url':"http://172.20.98.51:8084/rerank"
     }
 
     
