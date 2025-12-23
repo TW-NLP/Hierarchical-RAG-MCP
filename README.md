@@ -186,32 +186,6 @@ bash ToolBench.sh
 # python ../retrieval.py 3  # G3 test set
 ```
 
-#### Evaluation Metrics
-
-The evaluation automatically computes:
-- **NDCG@1**: Precision of the top-1 retrieved service
-- **NDCG@3**: Quality of top-3 retrieved services
-- **NDCG@5**: Quality of top-5 retrieved services
-
-Results are saved to:
-- `evaluation_results_G1.json`
-- `evaluation_results_G2.json`
-- `evaluation_results_G3.json`
-
-#### Output Format
-
-```json
-{
-  "ndcg@1": 0.7500,
-  "ndcg@3": 0.8200,
-  "ndcg@5": 0.8500,
-  "num_queries": 100,
-  "detailed_ndcg@1": [...],
-  "detailed_ndcg@3": [...],
-  "detailed_ndcg@5": [...]
-}
-```
-
 ### Web Demonstration (Optional)
 
 Launch a Gradio/Streamlit web interface to interact with Hi-RAG visually.
