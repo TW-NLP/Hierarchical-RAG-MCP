@@ -217,7 +217,7 @@ Hi-RAG/
 ├── images/                       # Assets for README
 ├── scripts/                      # Automation scripts
 │   ├── server_start.sh          # Launch MCP ecosystem
-│   ├── server_stop.sh           # Terminate MCP ecosystem
+│   ├── service_stop.sh           # Terminate MCP ecosystem
 │   ├── sig_hi_test.sh           # Single-service evaluation
 │   ├── mul_hi_test.sh           # Multi-service evaluation
 │   ├── ToolBench.sh             # ToolBench evaluation
