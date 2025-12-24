@@ -134,7 +134,7 @@ Launch the simulated MCP server environment. This script initializes all 40 serv
 
 ```bash
 cd scripts
-bash server_start.sh
+bash service_start.sh
 # This will start 40 independent service processes corresponding to the benchmark.
 ```
 
