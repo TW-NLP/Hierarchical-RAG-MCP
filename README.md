@@ -65,10 +65,6 @@ nohup vllm serve Qwen3-32B \
 # Port: 8083
 vllm serve BAAI/bge-large-en-v1.5 --task embed --port 8083
 
-# 3. Start the Reranker Model (BGE-Reranker)
-# Port: 8085
-vllm serve BAAI/bge-reranker-base --task score --port 8085
-```
 
 ---
 
