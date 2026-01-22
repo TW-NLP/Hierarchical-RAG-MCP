@@ -1,7 +1,7 @@
 # Hi-RAG: Structure-Aware Tool Selection
 
 <div align="center">
-<img src="images/HiRAG.png" alt="HiRAG Framework" height="300">
+<img src="images/Hi-RAG.png" alt="HiRAG Framework" height="300">
 
 <em>Official implementation of "Beyond Flat Retrieval: Structure-Aware Tool Selection with Hi-RAG"</em>
 </div>
