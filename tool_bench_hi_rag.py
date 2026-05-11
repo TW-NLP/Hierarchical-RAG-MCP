@@ -16,7 +16,8 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 
-from config import TOOL_BENCH_DIR
+from app.rag.colbert_search import ColBERTRetriever
+from config import DATA_DIR, TOOL_BENCH_DIR
 
 
 @dataclass
@@ -628,6 +629,55 @@ class MultiStageRetrievalSystem:
         return result
 
 
+class ColBERTToolBenchRetriever:
+    """ColBERT-RAG baseline for ToolBench evaluation.
+
+    Indexes the flat ``type / service / tool`` corpus and ranks documents by
+    MaxSim. Used to reproduce the ColBERT-RAG numbers from Table 6 of the
+    Hi-RAG paper.
+    """
+
+    def __init__(
+        self,
+        documents_data: List[Dict[str, Any]],
+        model_name: str = "BAAI/bge-large-en-v1.5",
+        cache_path: Optional[str] = None,
+    ):
+        self.documents_data = documents_data
+        texts = [
+            f"type: {doc['type']} service: {doc['service']} tool: {doc['tool']}"
+            for doc in documents_data
+        ]
+        if cache_path is None:
+            cache_dir = os.path.join(DATA_DIR, "colbert_save")
+            os.makedirs(cache_dir, exist_ok=True)
+            safe_model = model_name.replace("/", "_")
+            cache_path = os.path.join(cache_dir, f"{safe_model}.tool_bench.pkl")
+
+        self.retriever = ColBERTRetriever(
+            model_name=model_name, cache_path=cache_path
+        )
+        self.retriever.index(texts)
+
+    def search(self, query: str, k: int) -> List[Dict[str, Any]]:
+        scores = self.retriever.score(query)
+        order = np.argsort(scores)[::-1][:k]
+        return [
+            {
+                "rank": rank + 1,
+                "content": self.retriever.doc_texts[idx],
+                "metadata": {
+                    "id": int(idx),
+                    "type": self.documents_data[idx]["type"],
+                    "service": self.documents_data[idx]["service"],
+                    "tool": self.documents_data[idx]["tool"],
+                },
+                "score": float(scores[idx]),
+            }
+            for rank, idx in enumerate(order)
+        ]
+
+
 def print_results(results: Dict[str, Any], max_content_length: int = 100):
     """
     打印检索结果
@@ -804,50 +854,60 @@ def calculate_ndcg(predicted_services: List[str], relevant_services: List[str], 
 
 
 def evaluate_retrieval(
-    query_list: List[str], 
-    label_list: List[List[str]], 
-    multi_stage_system: MultiStageRetrievalSystem,
-    verbose: bool = True
+    query_list: List[str],
+    label_list: List[List[str]],
+    multi_stage_system: Optional[MultiStageRetrievalSystem] = None,
+    colbert_retriever: Optional["ColBERTToolBenchRetriever"] = None,
+    method: str = "hi_rag",
+    verbose: bool = True,
 ) -> Dict[str, float]:
     """
     评测检索系统性能
-    
+
     Args:
         query_list: 查询列表
         label_list: 每个查询对应的相关服务列表
-        multi_stage_system: 多级检索系统
+        multi_stage_system: 多级检索系统 (Hi-RAG)
+        colbert_retriever: ColBERT-RAG 检索器
+        method: ``hi_rag`` 或 ``colbert``
         verbose: 是否打印详细信息
-    
+
     Returns:
         评测指标字典
     """
+    if method == "hi_rag" and multi_stage_system is None:
+        raise ValueError("method='hi_rag' requires `multi_stage_system`")
+    if method == "colbert" and colbert_retriever is None:
+        raise ValueError("method='colbert' requires `colbert_retriever`")
+
     ndcg_at_1_list = []
     ndcg_at_3_list = []
     ndcg_at_5_list = []
-    
+
     if verbose:
         print("\n" + "="*80)
-        print("开始评测")
+        print(f"开始评测 (method={method})")
         print("="*80 + "\n")
-    
+
     for idx, (query, relevant_services) in enumerate(zip(query_list, label_list)):
         if verbose:
             print(f"处理查询 {idx+1}/{len(query_list)}: {query[:80]}...")
-        
-        # 执行检索
-        results = multi_stage_system.multi_stage_search(
-            query=query,
-            stage1_index="type_service_index",
-            stage2_index="type_service_tool_index",
-            stage1_top_k=10,
-            stage2_top_k=5
-        )
-        
-        # 提取预测的services
-        predicted_services = [
-            result['metadata']['service'] 
-            for result in results['results']
-        ]
+
+        if method == "hi_rag":
+            results = multi_stage_system.multi_stage_search(
+                query=query,
+                stage1_index="type_service_index",
+                stage2_index="type_service_tool_index",
+                stage1_top_k=10,
+                stage2_top_k=5,
+            )
+            predicted_services = [
+                result['metadata']['service']
+                for result in results['results']
+            ]
+        else:  # colbert
+            colbert_hits = colbert_retriever.search(query, k=5)
+            predicted_services = [hit['metadata']['service'] for hit in colbert_hits]
         
         # 计算NDCG指标
         ndcg_1 = calculate_ndcg(predicted_services, relevant_services, k=1)
@@ -891,36 +951,58 @@ def evaluate_retrieval(
 
 def main():
     """主函数 - 演示系统使用和评测"""
-    
+
     # 配置
     config = RetrievalConfig(
         # Embedding 配置
         embedding_api_key="EMPTY",
         embedding_base_url="http://172.20.98.51:8083/v1",
         embedding_model="qwen3_embedding",
-        
+
         # Rerank 配置
         rerank_api_key="EMPTY",
         rerank_base_url="http://172.20.98.51:8085/v1",
         rerank_model="bge_rerank",
-        
+
         # 检索参数
         bm25_weight=0.5,
         vector_weight=0.5,
         top_k=10,
         rerank_top_k=5,
         rrf_k=60,  # RRF 平滑参数
-        
+
         # 持久化路径
         index_dir="./faiss_index",
-        
+
         # 性能优化
         enable_cache=True
     )
-    
-    # 构建索引（仅第一次运行时需要，如果已经构建可以注释掉）
-    build_indexes(config, limit=None)  
-    
+
+    # 解析参数: [Gx] [method]
+    method = "hi_rag"
+    test_idx = None
+    for arg in sys.argv[1:]:
+        if arg.lower() in {"hi_rag", "colbert"}:
+            method = arg.lower()
+            continue
+        try:
+            candidate = int(arg) - 1
+            if 0 <= candidate < 3:
+                test_idx = candidate
+        except ValueError:
+            pass
+
+    if test_idx is None:
+        print("使用方法:")
+        print("  python tool_bench_hi_rag.py 1            # Hi-RAG on G1")
+        print("  python tool_bench_hi_rag.py 2 colbert    # ColBERT-RAG on G2")
+        print("  python tool_bench_hi_rag.py 3 hi_rag     # Hi-RAG on G3 (explicit)")
+        return
+
+    # Hi-RAG 需要预构建索引；ColBERT-RAG 直接在内存里建索引。
+    if method == "hi_rag":
+        build_indexes(config, limit=None)
+
     # 加载查询和标签
     tool_bench_base_dir = os.path.dirname(TOOL_BENCH_DIR)
     query_path = [os.path.join(tool_bench_base_dir, f'G{i}_query.json') for i in range(1, 4)]
@@ -936,37 +1018,31 @@ def main():
             print(f"警告: 文件不存在 {path}")
             query_list.append([])
             label_list.append([])
-    
-    # 选择测试集
-    if len(sys.argv) > 1:
-        action = sys.argv[1]
-        try:
-            test_idx = int(action) - 1
-            if 0 <= test_idx < 3:
-                querys = query_list[test_idx]
-                labels = label_list[test_idx]
-                print(f"\n选择测试集: G{test_idx+1} ({len(querys)} 个查询)\n")
-            else:
-                print("错误: 请输入 1、2 或 3")
-                return
-        except ValueError:
-            print("错误: 请输入有效的数字 (1、2 或 3)")
-            return
+
+    querys = query_list[test_idx]
+    labels = label_list[test_idx]
+    print(f"\n选择测试集: G{test_idx+1} ({len(querys)} 个查询), method={method}\n")
+
+    if method == "hi_rag":
+        multi_stage_system = MultiStageRetrievalSystem(config)
+        evaluation_results = evaluate_retrieval(
+            querys, labels,
+            multi_stage_system=multi_stage_system,
+            method="hi_rag",
+            verbose=True,
+        )
     else:
-        print("使用方法:")
-        print("  python retrieval.py 1  # Tool Bench G1 测试")
-        print("  python retrieval.py 2  # Tool Bench G2 测试")
-        print("  python retrieval.py 3  # Tool Bench G3 测试")
-        return
-    
-    # 初始化多级检索系统
-    multi_stage_system = MultiStageRetrievalSystem(config)
-    
-    # 执行评测
-    evaluation_results = evaluate_retrieval(querys, labels, multi_stage_system, verbose=True)
-    
+        documents_data = json.loads(open(TOOL_BENCH_DIR).read())
+        colbert_retriever = ColBERTToolBenchRetriever(documents_data)
+        evaluation_results = evaluate_retrieval(
+            querys, labels,
+            colbert_retriever=colbert_retriever,
+            method="colbert",
+            verbose=True,
+        )
+
     # 保存评测结果
-    output_path = f"./evaluation_results_G{test_idx+1}.json"
+    output_path = f"./evaluation_results_G{test_idx+1}_{method}.json"
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(evaluation_results, f, indent=2, ensure_ascii=False)
     print(f"评测结果已保存到: {output_path}\n")

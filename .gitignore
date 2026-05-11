@@ -7,3 +7,4 @@ faiss_index
 data/tool_bench/G1_query.json
 data/tool_bench/G2_query.json
 data/tool_bench/G3_query.json
+paper

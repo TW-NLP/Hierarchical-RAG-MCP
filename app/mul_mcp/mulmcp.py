@@ -1,5 +1,6 @@
 import os
 from app.rag.model import SimpleRagQA
+from app.rag.colbert_rag import ColBERTRagQA
 from config import MUL_TEST_DIR, SERVICE_INFO
 from qwen_agent.agents import Assistant
 import json
@@ -300,21 +301,36 @@ class HiRAGRerankerWrapper:
 # ==================== MulMCP类 ====================
 
 class MulMCP(object):
-    def __init__(self, embedding_model=None):
+    def __init__(self, embedding_model=None, colbert_model_name: str = "BAAI/bge-large-en-v1.5"):
         self.mul_test_dir = MUL_TEST_DIR
         self.summary2other = json.loads(open(SUMMARY_PATH, encoding="utf-8").read())
-        
+
         self.simple_qa = SimpleRagQA(
             faiss_path=FAISS_PATH,
             data_path=MUL_TEST_DIR,
             embedding_name='summary'
         )
-        
+
+        # ColBERT-RAG baseline (lazy-loaded on first use).
+        self._colbert_model_name = colbert_model_name
+        self._colbert_qa = None
+
         # 初始化Hi-RAG重排序器
         if embedding_model is not None:
             self.hi_rag_reranker = HiRAGRerankerWrapper(embedding_model)
         else:
             self.hi_rag_reranker = None
+
+    @property
+    def colbert_qa(self) -> ColBERTRagQA:
+        """Lazily instantiate the ColBERT-RAG retriever (heavy local model)."""
+        if self._colbert_qa is None:
+            self._colbert_qa = ColBERTRagQA(
+                data_path=self.mul_test_dir,
+                embedding_name='summary',
+                model_name=self._colbert_model_name,
+            )
+        return self._colbert_qa
 
     def init_agent_service(self, tools, llm_set, sys_mes=''):
         """
@@ -398,6 +414,66 @@ class MulMCP(object):
             responses.append(response)
         
         # 处理最后一条完整回复
+        final_response = responses[-1] if responses else {}
+        return final_response
+
+    def colbert_rag_test(self, query, llm_set, prompt):
+        """ColBERT-RAG Top-1: late-interaction (MaxSim) retrieval, no hierarchy."""
+        retrieved = self.colbert_qa.search(query, top_k=1)
+        if not retrieved:
+            return {}
+
+        res_str = retrieved[0]
+        service_find = self.summary2other[res_str]['service_name']
+        port_find = self.summary2other[res_str]['port']
+
+        tools = [{
+            'mcpServers': {
+                service_find: {
+                    'url': f"http://localhost:{port_find}/sse"
+                }
+            }
+        }]
+        bot = self.init_agent_service(tools, llm_set=llm_set, sys_mes=prompt)
+
+        messages = [{'role': 'user', 'content': query}]
+        responses = []
+        for response in bot.run(messages=messages):
+            responses.append(response)
+
+        final_response = responses[-1] if responses else {}
+        return final_response
+
+    def colbert_rag_test_top3(self, query, llm_set, prompt):
+        """ColBERT-RAG Top-3: flat MaxSim retrieval, de-duplicated to ≤3 services."""
+        retrieved = self.colbert_qa.search(query, top_k=20)
+
+        filter_service_name: List[str] = []
+        filter_port: List[int] = []
+        for res_str in retrieved:
+            if res_str not in self.summary2other:
+                continue
+            service_name = self.summary2other[res_str]['service_name']
+            if service_name in filter_service_name:
+                continue
+            filter_service_name.append(service_name)
+            filter_port.append(self.summary2other[res_str]['port'])
+            if len(filter_service_name) >= 3:
+                break
+
+        tools = [{'mcpServers': {}}]
+        for name, port in zip(filter_service_name, filter_port):
+            tools[0]['mcpServers'][name] = {
+                'url': f"http://localhost:{port}/sse"
+            }
+
+        bot = self.init_agent_service(tools, llm_set=llm_set, sys_mes=prompt)
+
+        messages = [{'role': 'user', 'content': query}]
+        responses = []
+        for response in bot.run(messages=messages):
+            responses.append(response)
+
         final_response = responses[-1] if responses else {}
         return final_response
 
@@ -700,6 +776,11 @@ class MulMCP(object):
                         response = self.rag_test(query_i, llm_set, w=0.1, prompt=prompt)
                     else:
                         response = self.rag_test_top3(query_i, llm_set, w=0.1, prompt=prompt)
+                elif rag_type == 'COLBERT':
+                    if topk == 1:
+                        response = self.colbert_rag_test(query_i, llm_set, prompt=prompt)
+                    else:
+                        response = self.colbert_rag_test_top3(query_i, llm_set, prompt=prompt)
                 elif rag_type == 'HIRAG':
                     if topk == 1:
                         response = self.hi_rag_test(query_i, llm_set, w=0.1, prompt=prompt)
